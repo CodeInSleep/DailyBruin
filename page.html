@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+		<link rel="stylesheet" href="../style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css"> 
+
+	</head>
+	<body>
+		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+  		<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+  		<nav class="top-bar" data-topbar role="navigation">
+			  <ul class="title-area">
+			    <li class="name">
+			      <h1><a href="#">Home</a></h1>
+			    </li>
+			     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			  </ul>
+
+			  <section class="top-bar-section">
+			    <!-- Right Nav Section -->
+			    <ul class="right">
+			      <li class="active"><a href="#">Right Button Active</a></li>
+			      <li class="has-dropdown">
+			        <a href="#">Right Button Dropdown</a>
+			        <ul class="dropdown">
+			          <li><a href="#">data source</a></li>
+			          <li class="active"><a href="#">raw data</a></li>
+			        </ul>
+			      </li>
+			    </ul>
+
+			    <!-- Left Nav Section -->
+			    <ul class="left">
+			      <li><a href="#">earthquakes in the past Month</a></li>
+			    </ul>
+			  </section>
+			</nav>
+
+		 <script id="quake_template" type="text/template">
+			 <h1 class="numberOfQuakes"> Earthquake counta of the week: {{numberOfQuakes}} </h1> 
+			 <ul class="quakes"> 
+			 	{{#earthquakes}}
+			 		<li class="quake"> 
+			 			<h3>{{properties.place}}</h3>
+			 			<div>Magnitude: {{properties.mag}}</div> 
+					</li>
+			 	{{/earthquakes}}
+			 </ul>
+		 </script>
+		 	<div id="graph"> </div>
+		 	<div id="banner"> 
+		 		<div id="container"> 
+		 			<!-- <img class="topic_photo" src="http://inapcache.boston.com/universal/site_graphics/blogs/bigpicture/quake1/bp36.jpg"> -->
+		 		</div>
+		 	</div>
+		 	<section id="content"></section>
+		 <script src="./d3-tip.js"></script>
+		 <script src="../script.js" type="text/javascript"></script>
+	</body>
+</html>
