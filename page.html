@@ -41,12 +41,13 @@
 			</nav>
 
 		 <script id="quake_template" type="text/template">
-			 <h1 class="numberOfQuakes"> Earthquake counta of the week: {{numberOfQuakes}} </h1> 
+			 <h1 class="numberOfQuakes"> Number of Earthquakes above magnitude 4.5 this week: {{numberOfQuakes}} </h1> 
 			 <ul class="quakes"> 
 			 	{{#earthquakes}}
 			 		<li class="quake"> 
-			 			<h3>{{properties.place}}</h3>
-			 			<div>Magnitude: {{properties.mag}}</div> 
+			 			<h4 class=>{{properties.place}}</h3>
+			 			<div class="mag_label">Magnitude: {{properties.mag}}</div> 
+			 			<div class="coord_label">Coordinates: {{coordinates geometry.coordinates}}</div>
 					</li>
 			 	{{/earthquakes}}
 			 </ul>

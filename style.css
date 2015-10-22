@@ -88,7 +88,7 @@ body {
 
 .numberOfQuakes { 
   text-align: center; 
-  font: 36px sans-serif;
+  font: 16px sans-serif;
   fill: #666;
 }
 
@@ -96,8 +96,12 @@ body {
   list-style-type: none;
 }
 
+.quatkes { 
+  font: 20px Times;
+}
+
 li:nth-child(odd) { 
-  background-color: #ACAEB2;
+  background-color: #f9f9f9;
 }
 
 li text { 

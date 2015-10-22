@@ -1,3 +1,7 @@
+Handlebars.registerHelper('coordinates', function(location) { 
+	return "(" + location[0] + ", " + location[1] + ")";
+}); 
+
 $.get("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson", function(data) { 
 	renderGraph();
 	var data = {numberOfQuakes: data.features.length, earthquakes: data.features}; 
@@ -7,7 +11,6 @@ $.get("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson
 	var source   = $("#quake_template").html();
 	var template = Handlebars.compile(source);
 	content.innerHTML = template(data);
-	// var html    = template(context);
 		
 	function renderGraph() { 
 		$(document).ready(function() { 
@@ -18,7 +21,7 @@ $.get("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson
 	function svg() { 
 
 		var width = 1200, 
-			height = 500;
+			height = 500
 
 		var radius = d3.scale.linear() 
 			.domain([0, 10])
@@ -134,5 +137,33 @@ $.get("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson
 		});
 
 		d3.select(self.frameElement).style("height", height + "px");
+
+		// function resize() { 
+		// 	var width =parseInt(d3.select("#graph").style("width")); 
+		// 	var height = parseInt(d3.select("#graph").style("height")); 
+		// 	console.log(width); 
+		// 	console.log(height); 
+		// 	var projection = d3.geo.naturalEarth()
+		// 		.scale(167*960/width)
+		// 		.translate([width/2, height/2])
+		// 		.precision(.1); 
+
+		// 	var path = d3.geo.path()
+		// 		.projection(projection); 
+
+		// 	d3.select("#sphere").transition().duration(500).attr("d", path); 
+		// 	d3.selectAll(".quake").transition().duration(500).attr("transform", function(d) { 
+		// 			return "translate(" + projection(d.geometry.coordinates)[0] + ", " + projection(d.geometry.coordinates)[1] + ")";
+		// 		});
+		// 	d3.select(".water").transition().duration(500).attr("d", path);
+		// 	d3.select(".graticule").transition().duration(500).attr("d", path);
+		// 	d3.select(".land").transition().duration(500).attr("d", path);
+		// 	d3.select(".boundary").transition().duration(500).attr("d", path);
+		// }
+
+		// d3.select(window).on("resize", resize); 
 	}	
+
+
 });
+
